@@ -1,0 +1,11 @@
+body {
+    max-width: 800px;
+}
+
+h1 {
+    color: blue;
+}
+.button {
+    background-color: darkorange;
+    color: white;
+}
