@@ -17,30 +17,29 @@ require 'sampleSizeLogic.php'
 <?php require('header.php'); ?>
 <h1>Contact Center Calculators</h1>
 <!--We should think of adding a breadcrumb here so users can navigate easily within this module -->
-<form id="systemUpTimeForm" method="post" action="">
+<form id='systemUpTimeForm' method='post' action='sampleSize.php'>
     <fieldset>
         <legend class='calcTitle'>Sample Size</legend>
 
-        <label for="numCalls">Number of Contacts
-            <input type='text' name="numCalls" value='<?= sanitize($numCalls) ?>'>
+        <label for='numCalls'>Number of Contacts
+            <input type='text' id='numCalls' name='numCalls' value='<?= sanitize($numCalls) ?>'>
         </label>
         <br>
 
-        <label for="confLevel">Confidence Level
-            <input type='radio' name="confLevel" value='1' <?= ($confLevel == 1) ? 'checked' : '' ?>> 80%
-            <input type='radio' name="confLevel" value='2' <?= ($confLevel == 2) ? 'checked' : '' ?>> 85%
-            <input type='radio' name="confLevel" value='3' <?= ($confLevel == 3) ? 'checked' : '' ?>> 90%
-            <input type='radio' name="confLevel" value='4' <?= ($confLevel == 4) ? 'checked' : '' ?>> 95%
-            <input type='radio' name="confLevel" value='5' <?= ($confLevel == 5) ? 'checked' : '' ?>> 99%
+        <p>Confidence Level<br>
+            <input type='radio' name='confLevel' value='1' <?= ($confLevel == 1) ? 'checked' : '' ?>> 80%
+            <input type='radio' name='confLevel' value='2' <?= ($confLevel == 2) ? 'checked' : '' ?>> 85%
+            <input type='radio' name='confLevel' value='3' <?= ($confLevel == 3) ? 'checked' : '' ?>> 90%
+            <input type='radio' name='confLevel' value='4' <?= ($confLevel == 4) ? 'checked' : '' ?>> 95%
+            <input type='radio' name='confLevel' value='5' <?= ($confLevel == 5) ? 'checked' : '' ?>> 99%
+        </p>
+
+        <label for='errorMargin'>Margin of Error (%)
+            <input type='text' id='errorMargin' name='errorMargin' value='<?= sanitize($errorMargin) ?>'>
         </label>
         <br>
 
-        <label for="errorMargin">Margin of Error (%)
-            <input type='text' name="errorMargin" value='<?= sanitize($errorMargin) ?>'>
-        </label>
-        <br>
-
-        <input class='button' type="submit" value="Submit"/>
+        <input class='button' type='submit' value='Submit'/>
     </fieldset>
 </form>
 <?php if ($form->hasErrors) : ?>

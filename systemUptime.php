@@ -18,13 +18,13 @@ require 'systemUptimeLogic.php'
 <h1>Contact Center Calculators</h1>
 <!--We should think of adding a breadcrumb here so users can navigate easily within this module -->
 
-<form id="systemUpTimeForm" method="post" action="">
+<form id='systemUpTimeForm' method='post' action='systemUptime.php'>
     <fieldset>
         <legend class='calcTitle'>System Uptime</legend>
 
         <!--Todo: are we allowed to use the same label for multiple inputs?-->
-        <label for="month">Select Month and Year:
-            <select name="month">
+        <label for='month'>Select Month and Year:
+            <select name='month' id='month'>
                 <option value='1' <?= ($month == '1') ? 'selected' : '' ?>>Jan</option>
                 <option value='2' <?= ($month == '2') ? 'selected' : '' ?>>Feb</option>
                 <option value='3' <?= ($month == '3') ? 'selected' : '' ?>>Mar</option>
@@ -38,9 +38,11 @@ require 'systemUptimeLogic.php'
                 <option value='11' <?= ($month == '11') ? 'selected' : '' ?>>Nov</option>
                 <option value='12' <?= ($month == '12') ? 'selected' : '' ?>>Dec</option>
             </select>
-            <select name="year">
-                <option value="2017" <?= ($year == '2017') ? 'selected' : '' ?>>2017</option>
-                <option value="2018" <?= ($year == '2018') ? 'selected' : '' ?>>2018</option>
+        </label>
+        <label>
+            <select name='year'>
+                <option value='2017' <?= ($year == '2017') ? 'selected' : '' ?>>2017</option>
+                <option value='2018' <?= ($year == '2018') ? 'selected' : '' ?>>2018</option>
             </select>
         </label>
         <br>
@@ -50,48 +52,49 @@ require 'systemUptimeLogic.php'
         </label>
         <br>
 
-        <label for="weekDayHours">Work Hours per Week Day:
+        <label for='weekDayHours'>Work Hours per Week Day:
             <input type='range'
-                   name="weekDayHours"
+                   id='weekDayHours'
+                   name='weekDayHours'
                    min='6'
                    value='<?= $weekDayHours ?>'
                    max='24'
                    step='1'
                    onchange="weekDayHoursOutput.value = this.value;">
-            <output id="weekDayHoursOutput"><?= $weekDayHours ?></output>
         </label>
+
+        <output id='weekDayHoursOutput'><?= $weekDayHours ?></output>
         <br>
 
-        <label for="weekendWorkHours">Work Hours per Weekend Day:
+        <label for='weekendWorkHours'>Work Hours per Weekend Day:
             <input type='range'
-                   name="weekendWorkHours"
+                   id='weekendWorkHours'
+                   name='weekendWorkHours'
                    min='6'
                    value='<?= $weekendHours ?>'
                    max='24'
                    step='1'
                    onchange="weekendWorkHoursOutput.value = this.value;">
-            <output id="weekendWorkHoursOutput"><?= $weekendHours ?></output>
         </label>
-
+        <output id="weekendWorkHoursOutput"><?= $weekendHours ?></output>
         <br>
+        <!-- Todo: Figure out how to set the correct checked state based on wha teh user submitted-->
+        <p>Select below the days of the week that your contact center is open for business:<br/>
+            <input type='checkbox' name='workDays[]' value='sunday' checked> Sunday
+            <input type='checkbox' name='workDays[]' value='monday' checked> Monday
+            <input type='checkbox' name='workDays[]' value='tuesday' checked> Tuesday
+            <input type='checkbox' name='workDays[]' value='wednesday' checked> Wednesday
+            <input type='checkbox' name='workDays[]' value='thursday' checked> Thursday
+            <input type='checkbox' name='workDays[]' value='friday'> Friday
+            <input type='checkbox' name='workDays[]' value='saturday'> Saturday
+        </p>
 
-        <label for="workDays">Select below the days of the week that your contact center is open for business:<br>
-            <input type="checkbox" name="workDays[]" value="sunday" checked> Sunday
-            <input type="checkbox" name="workDays[]" value="monday" checked> Monday
-            <input type="checkbox" name="workDays[]" value="tuesday" checked> Tuesday
-            <input type="checkbox" name="workDays[]" value="wednesday" checked> Wednesday
-            <input type="checkbox" name="workDays[]" value="thursday" checked> Thursday
-            <input type="checkbox" name="workDays[]" value="friday"> Friday
-            <input type="checkbox" name="workDays[]" value="saturday"> Saturday
-        </label>
-        <br>
-
-        <label for="downTime">System Shutdown Time (hrs):
-            <input type='text' name="downTime" value='<?= sanitize($downTime) ?>'>
+        <label for='downTime'>System Shutdown Time (hrs):
+            <input type='text' id='downTime' name='downTime' value='<?= sanitize($downTime) ?>'>
         </label>
         <br>
         <br>
-        <input class='button' type="submit" value="Submit"/>
+        <input class='button' type='submit' value='Submit'/>
     </fieldset>
 </form>
 <?php if ($form->hasErrors) : ?>

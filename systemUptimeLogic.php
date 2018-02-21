@@ -75,8 +75,6 @@ if ($form->isSubmitted()) {
             }
 
             foreach ($nonWorkingDays as $i => $dayString) {
-                #    for ($i = 0; $i < count($nonWorkingDays); $i = $i + 1) {
-                echo $i . ' counter';
                 if ($nonWorkingDays[$i] == 'sunday') {
                     $sundays = 0;
                 } else if ($nonWorkingDays[$i] == 'monday') {
