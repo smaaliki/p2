@@ -6,12 +6,12 @@ require('MyForm.php');
 #use DWA\Form;
 use CCCALC\MyForm;
 
-//dump($_POST);
-$form = new MyForm($_POST);
+//dump($_GET);
+$form = new MyForm($_GET);
 
-$numCalls = isset($_POST['numCalls']) ? $_POST['numCalls'] : '';
-$confLevel = isset($_POST['confLevel']) ? $_POST['confLevel'] : '4';
-$errorMargin = isset($_POST['errorMargin']) ? $_POST['errorMargin'] : '';
+$numCalls = isset($_GET['numCalls']) ? $_GET['numCalls'] : '';
+$confLevel = isset($_GET['confLevel']) ? $_GET['confLevel'] : '4';
+$errorMargin = isset($_GET['errorMargin']) ? $_GET['errorMargin'] : '';
 $sampleSize = '';
 
 if ($form->isSubmitted()) {

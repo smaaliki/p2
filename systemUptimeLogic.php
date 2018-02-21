@@ -6,15 +6,15 @@ require('MyForm.php');
 #use DWA\Form;
 use CCCALC\MyForm;
 
-$form = new MyForm($_POST);
+$form = new MyForm($_GET);
 
 $fullOperation = $form->has('fullOperation');
-$month = isset($_POST['month']) ? $_POST['month'] : '1';
-$year = isset($_POST['year']) ? $_POST['year'] : '2018';
-$weekDayHours = isset($_POST['weekDayHours']) ? $_POST['weekDayHours'] : '8';
-$weekendHours = isset($_POST['weekendWorkHours']) ? $_POST['weekendWorkHours'] : '8';
-$workDays = isset($_POST['workDays']) ? $_POST['workDays'] : '';
-$downTime = isset($_POST['downTime']) ? $_POST['downTime'] : '';
+$month = isset($_GET['month']) ? $_GET['month'] : '1';
+$year = isset($_GET['year']) ? $_GET['year'] : '2018';
+$weekDayHours = isset($_GET['weekDayHours']) ? $_GET['weekDayHours'] : '8';
+$weekendHours = isset($_GET['weekendWorkHours']) ? $_GET['weekendWorkHours'] : '8';
+$workDays = isset($_GET['workDays']) ? $_GET['workDays'] : '';
+$downTime = isset($_GET['downTime']) ? $_GET['downTime'] : '';
 $systemUpTime = '';
 
 if ($form->isSubmitted()) {
@@ -33,7 +33,7 @@ if ($form->isSubmitted()) {
         if ($downTime == "0") {
             $systemUpTime = '100';
         } else if ($fullOperation == true) {
-            $systemUpTime = !empty($_POST['downTime']) ? round(100 * (1 - ($downTime / ($daysInMonth * 24)))) : '';
+            $systemUpTime = !empty($_GET['downTime']) ? round(100 * (1 - ($downTime / ($daysInMonth * 24)))) : '';
         } else {
             #Figure out how many weekdays there are in the month (i.e. how many, Sundays, Mondays, etc.)
             #Note: The following sets the time zone to Dubai.  We might want to consider opening this up

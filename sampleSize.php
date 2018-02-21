@@ -17,7 +17,7 @@ require 'sampleSizeLogic.php'
 <?php require('header.php'); ?>
 <h1>Contact Center Calculators</h1>
 <!--We should think of adding a breadcrumb here so users can navigate easily within this module -->
-<form id='systemUpTimeForm' method='post' action='sampleSize.php'>
+<form id='systemUpTimeForm' method='get' action='sampleSize.php'>
     <fieldset>
         <legend class='calcTitle'>Sample Size</legend>
 

@@ -18,7 +18,7 @@ require 'systemUptimeLogic.php'
 <h1>Contact Center Calculators</h1>
 <!--We should think of adding a breadcrumb here so users can navigate easily within this module -->
 
-<form id='systemUpTimeForm' method='post' action='systemUptime.php'>
+<form id='systemUpTimeForm' method='get' action='systemUptime.php'>
     <fieldset>
         <legend class='calcTitle'>System Uptime</legend>
 
@@ -46,7 +46,7 @@ require 'systemUptimeLogic.php'
             </select>
         </label>
         <br>
-
+        <!-- Todo: disable the following inputs if it is a 24/7 operation -->
         <label> Check if you have a 24/7 Operation
             <input type='checkbox' name='fullOperation' value='1' <?= ($fullOperation) ? 'checked' : '' ?>>
         </label>
