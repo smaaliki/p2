@@ -1,59 +1,28 @@
-<!-- Todo:
-Validation
-Limit input types
-Calculations and feedback
-Style
--->
+<?php
+//require 'helpers.php';
+//require('systemUptime.php');
+//require('sampleSize.php');
+?>
 
 <!DOCTYPE html>
 <html lang='en'>
 <head>
     <title>Contact Center Calculators</title>
     <meta charset='utf-8'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+<?php require('header.php'); ?>
+<h1>Contact Center Calculators</h1>
 
-<h1>Contact Center Calculator</h1>
-
-<form id="myForm" method="post" action="">
-    <fieldset>
-        <legend>QA Personnel Calculator</legend>
-        <p>
-            <label for="agentsnum">Number of Agents</label><br/>
-            <input id="agentsnum" name="agentsnum" size="25"/>
-        </p>
-        <p>
-            <!--Note: Make this a drop down list-->
-            <label for="daysinmonth">Days in month</label><br/>
-            <input id="daysinmonth" name="daysinmonth" size="25"/>
-        </p>
-        <p>
-            <!--Note: Make this checkboxes-->
-            Select the Work Days:<br>
-            <input type="checkbox" name="workdays" value="monday"> Monday
-            <input type="checkbox" name="workdays" value="tuesday"> Tuesday
-            <input type="checkbox" name="workdays" value="wednesday"> Wednesday
-            <input type="checkbox" name="workdays" value="thursday"> Thursday
-            <input type="checkbox" name="workdays" value="friday"> Friday
-            <input type="checkbox" name="workdays" value="saturday"> Saturday
-            <input type="checkbox" name="workdays" value="sunday"> Sunday
-        </p>
-        <p>
-            <!--Note: Make this a drop down list-->
-            <label for="workhours">Work Hours</label><br/>
-            <input id="workhours" name="workhours"  rows="5" cols="50"></textarea>
-        </p>
-
-        <p>
-            <label for="avghandletime">Average Handle Time (minutes)</label><br/>
-            <input id="avghandletime" name="avghandletime" size="25"/>
-        </p>
-
-        <p>
-            <input class="submit" type="submit" value="Submit"/>
-        </p>
-    </fieldset>
-</form>
+<p> Below is a list of calculators that you can use to calculate some of the KPIs that are part of the Government of Dubai Contact Centre Standards.</p>
+<ul>
+    <li><a href='sampleSize.php'>Sample Size</a></li>
+    <li><a href='systemUptime.php'>System Uptime</a></li>
+</ul>
+<?php require('footer.php'); ?>
 </body>
 </html>
